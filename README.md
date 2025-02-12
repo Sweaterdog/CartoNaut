@@ -3,7 +3,9 @@ This repository is about CartoNaut, an AI-driven robot which uses vision and tex
 
 CartoNaut is currently powered by Gemini 2.0 Flash Thinking Experimental 01-21.
 
-## Instructions to build
+The name CartoNaut comes from "Carto" - from Cartographer, and "Naut" - from Astronaut. The name is designed to showcase the bot's visual mapping and exploration skills.
+
+## Instructions to build and set up
 ### What you'll need
 
 | Item | Price |
@@ -41,7 +43,7 @@ CartoNaut is currently powered by Gemini 2.0 Flash Thinking Experimental 01-21.
 10. Connect the USB Webcam to the Pi via the OTG cable.
 11. Power the Pi using the powerbank and a USB cable.
 12. On your computer, open a new CMD/Powershell/Terminal window and type: "ssh pi@zero.local"
-13. If prompted, type "raspberry" as the password. You may not be able to see it as you are typing.
+13. If prompted, accept fingerprint warnings with "yes" and type "raspberry" as the password. You may not be able to see it as you are typing.
 14. If not already installed on the Pi, install Python and Git.
     
     ```sudo apt install python3 python-is-python3 git```
