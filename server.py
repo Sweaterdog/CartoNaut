@@ -7,16 +7,22 @@ import cv2
 app = Flask(__name__)
 socketio = SocketIO(app)
 
+def read_camera():
+        global latest_frame
+        cam = cv2.VideoCapture(0)
+        while True:
+                succes, frame = camera.read()
+                if success:
+                        ret, buffer = cv2.imencode('.jpg', frame)
+                        latest_frame = buffer.tobytes()
+                time.sleep(0.5)
+
 @app.route('/')
 def index():
-        camera = cv2.VideoCapture(0)
-        success, frame = camera.read()
-        if success:
-                ret, buffer = cv2.imencode('.jpg', frame)
-                frame = buffer.tobytes()
-                return Response(frame, mimetype='image/jpeg')
+        if latest_frame:
+                return Response(latest_frame, mimetype='image/jpeg')
         else:
-                return "Failed to capture image", 500
+                return "No frame available", 500
 
 @socketio.on('message')
 def handle_message(message):
@@ -96,6 +102,9 @@ def d(strength):
 
 
 if __name__ == '__main__':
+        camera_thread = threading.Thread(target=read_camera)
+        camera_thread.daemon = True
+        camera_thread.start()
         try:
                 start_server()
         except KeyboardInterrupt:
