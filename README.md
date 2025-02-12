@@ -20,7 +20,7 @@ The name CartoNaut comes from "Carto" - from Cartographer, and "Naut" - from Ast
 | [microSD card](https://thepihut.com/products/sandisk-microsd-card-class-10-a1) | £8.00 |
 | USB Webcam | £6 |
 | Powerbank | £15 |
-| Total | £67.98 |
+| **Total** | **£67.98** |
 
 ### Setting up
 
