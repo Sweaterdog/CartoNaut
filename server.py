@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 from flask import Flask, Response
 from flask_socketio import SocketIO
 import cv2
+import threading
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -11,7 +12,7 @@ def read_camera():
         global latest_frame
         cam = cv2.VideoCapture(0)
         while True:
-                succes, frame = camera.read()
+                success, frame = cam.read()
                 if success:
                         ret, buffer = cv2.imencode('.jpg', frame)
                         latest_frame = buffer.tobytes()
